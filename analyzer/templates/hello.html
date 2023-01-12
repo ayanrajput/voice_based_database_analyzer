@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/alasql/0.6.2/alasql.min.js"
+      integrity="sha512-2avn8of9zz17ejnalEodjUd2blM2VEwSixFrGc0BNDXBlkGBNof9w8/ajoDquplOw/RrExjv4kXQ709719C2Ng=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    {% load static %}
+    <script src="{% static 'jquery.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'style.css' %}" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="fileInput">
+      Connection String:
+      <input type="text" id="input" accept=".xls,.xlsx" />
+      <div id="connect" style="display: inline">
+        <button id="button">Connect</button>
+      </div>
+      <div id="connecting" style="display: inline">
+        <button><span class="loading--small"></span></button>
+      </div>
+      <div id="failed" style="text-align: center; color: crimson">
+        Connection Failed
+      </div>
+    </div>
+    <div id="databaseSelectionDiv" style="font-size: 1.3rem">
+      <span style="color: firebrick"> Select Database</span>
+      <br />
+      <ul id="databases"></ul>
+    </div>
+    <div id="collectionSelectionDiv" style="font-size: 1.3rem">
+      <span style="color: firebrick"> Select Collection</span>
+      <br />
+      <ul id="collections"></ul>
+    </div>
+    <div id="joinDiv">
+      <h3 id="joinDivHeader"></h3>
+      <div id="joinDivBody">
+        <div id="firstTableDiv"></div>
+        <div id="secondTableDiv"></div>
+      </div>
+    </div>
+    <!-- Main grid div -->
+    <div id="mainDiv">
+      <div id="leftDiv">
+        <h3 style="color: dodgerblue">Data</h3>
+      </div>
+      <div id="rightDiv">
+        <h3 style="color: dodgerblue">Query Results</h3>
+      </div>
+    </div>
+
+    <br />
+    <div id="queryDiv">
+      <span
+        id="queryText"
+        style="
+          display: inline-block;
+          width: 98vw;
+          height: 10vh;
+          background: #bbbbbb;
+          padding: 4px;
+          border-radius: 4px;
+        "
+      ></span>
+      <br /><br />
+      <button id="speakButton">Speak</button>
+    </div>
+    <!-- ------------------------------------- -->
+    <div id="voiceInput"></div>
+    <script src="{% static 'app.js' %}"></script>
+  </body>
+</html>
